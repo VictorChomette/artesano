@@ -1,0 +1,10 @@
+<%# Ajouter photos!! %>
+
+<div class="container mt-3">
+  <%= simple_form_for(@service) do |f| %>
+    <%= f.input :title %>
+    <%= f.input :specialty %>
+    <%= f.input :description %>
+    <%= f.submit class: 'btn btn-primary text-white mt-2' %>
+  <% end %>
+</div>
