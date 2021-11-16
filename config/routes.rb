@@ -2,7 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :services
+  resources :services do
+    member do
+      resources :interventions, only: [:create]
+    end
+  end
+  resources :interventions, only: [:index, :show]
 end
 
 # /services	GET	services	index
