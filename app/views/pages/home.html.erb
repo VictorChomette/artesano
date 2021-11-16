@@ -1,2 +1,20 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner">
+  <div class="container">
+      <h1>Artesano centralize the best craftsmen around you!</h1>
+      <p>Don't waste any more time, the <strong>best craftsmen</strong> are there for <strong>you</strong>.</p>
+    <div class="banner-element">
+      <%= simple_form_for :query, url: "/services", method: :get do |f| %>
+        <div class="inner-banner" style="display: flex">
+          <%= f.input :specialty, as: :select,collection: ["Plombier", "Eléctricien","Peintre","Jardinier","Menuisier"],
+          label: false, default: [0],
+          input_html: {class: "select-spe"} %>
+
+          <%= f.input :localisation, placeholder: "localisation...", label: false,
+          input_html: {class: "input-loc"} %>
+
+          <%= f.submit "Search your craftsman!", class: "btn btn-ghost" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
