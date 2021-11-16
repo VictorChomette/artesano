@@ -1,8 +1,12 @@
-<%= link_to "+ Add a service", new_service_path %>
-<h1>Resultats correpondants</h1>
+<div class="container">
+  <% if policy(Service).create? %>
+    <%= link_to "Add a service", new_service_path %>
+  <% end %>
+  <h1>Resultats correpondants</h1>
 
-<% @services.each do |service|  %>
-<%# Changer en title une fois créé %>
-  <h4><%= link_to service.title, service_path(service) %></h4>
-  <p><%= service.specialty %></p>
-<% end %>
+  <% @services.each do |service|  %>
+  <%# Changer en title une fois créé %>
+    <h4><%= service.title %></h4>
+    <p><%= service.specialty %></p>
+  <% end %>
+</div>
