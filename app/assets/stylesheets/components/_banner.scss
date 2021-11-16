@@ -1,0 +1,82 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  background-image:  linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('banner-artesano.png');
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.btn-ghost {
+  color:white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+  &:hover{
+    color: rgba(255, 255, 255, 0.63);
+  }
+}
+
+.inner-banner{
+  align-items: center;
+  justify-content:space-around;
+  margin-top: 100px;
+}
+
+.form-control{
+  background-color:transparent;
+  color: white;
+}
+
+.form-control:focus {
+  background-color:transparent;
+  color: white;
+}
+
+.form-select {
+  background-color:transparent;
+  background-image: asset_url("arrow.svg");
+}
+
+::-webkit-input-placeholder {
+  color:white;
+}
+
+input::placeholder {
+  color: white !important;
+}
+
+.input-loc {
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+}
+
+.select-spe {
+  color:white;
+  border: 1px solid white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+  background-image: white;
+}
