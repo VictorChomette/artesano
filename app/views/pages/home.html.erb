@@ -4,15 +4,15 @@
       <p>Don't waste any more time, the <strong>best craftsmen</strong> are there for <strong>you</strong>.</p>
     <div class="banner-element">
       <%= simple_form_for :query, url: "/services", method: :get do |f| %>
-        <div class="inner-banner" style="display: flex">
+        <div class="inner-banner d-flex">
           <%= f.input :specialty, as: :select,collection: ["Plombier", "Eléctricien","Peintre","Jardinier","Menuisier"],
           label: false, default: [0],
           input_html: {class: "select-spe"} %>
 
-          <%= f.input :localisation, placeholder: "localisation...", label: false,
+          <%= f.input :localisation, placeholder: "Localisation...", label: false,
           input_html: {class: "input-loc"} %>
 
-          <%= f.submit "Search your craftsman!", class: "btn btn-ghost" %>
+          <%= f.submit "Search!", class: "btn cta-search mt-0" %>
         </div>
       <% end %>
     </div>
