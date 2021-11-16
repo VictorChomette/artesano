@@ -1,0 +1,7 @@
+<h2><%= @service.title %></h2>
+<h4><%= @service.specialty %></h4>
+<p> <%= @service.description %> </p>
+<%= link_to "Edit service", edit_service_path(:id) %>
+<%= link_to service_path(service), method: :delete do %>
+  <i class="fas fa-trash"></i>
+<% end %>
