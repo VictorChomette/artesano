@@ -20,7 +20,7 @@ User.create(email: 'jayz@gmail.com', password: '123456', first_name: 'Jay', last
 Service.create!(
   title: 'Electricien paris 4eme',
   specialty: 'Electricien',
-  description: 'Ultra réactif',
+  presentation: 'Ultra réactif',
   address: '17 square jean thebaud, 75015',
   user_id: User.first.id
 )
