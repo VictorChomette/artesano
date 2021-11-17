@@ -40,7 +40,11 @@ class ServicesController < ApplicationController
   def update
     @service = Service.find(params[:id])
     authorize @service
-    @service.update(service_params)
+    if @service.update(service_params)
+      redirect_to service_path(@service)
+    else
+      render :new
+    end
   end
 
   def destroy
