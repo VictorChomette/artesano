@@ -10,8 +10,8 @@ class ServicesController < ApplicationController
     @service = Service.find(params[:id])
     authorize @service
     @markers = [{
-        lat: @service.latitude,
-        lng: @service.longitude
+      lng: @service.longitude,
+      lat: @service.latitude
       }]
   end
 

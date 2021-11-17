@@ -8,8 +8,8 @@ class InterventionsController < ApplicationController
     @intervention = Intervention.find(params[:id])
     authorize @intervention
     @markers = [{
-        lat: @intervention.service.latitude,
-        lng: @intervention.service.longitude
+        lng: @intervention.service.longitude,
+        lat: @intervention.service.latitude
       }]
   end
 
