@@ -1,0 +1,14 @@
+.log {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: right;
+}
+
+.form-control.email:focus, .form-control.password:focus, .form-control.email, .form-control.password{
+  color: black;
+}
