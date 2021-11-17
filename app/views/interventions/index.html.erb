@@ -1,0 +1,11 @@
+<div class="container">
+  <%# <% if policy(Intervention).create? %>
+    <%# <%= link_to "Add a intervention", new_intervention_path %>
+  <%# <% end %>
+  <h1>Mes interventions</h1>
+
+  <% @interventions.each do |intervention|  %>
+    <h4><%= intervention.date %></h4>
+    <p><%= intervention.description %></p>
+  <% end %>
+</div>
