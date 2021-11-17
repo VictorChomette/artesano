@@ -1,12 +1,13 @@
 <%# Ajouter photos!! %>
+<div class="mx-auto w-25">
+  <div class="container mt-3">
+    <%= simple_form_for(@service) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :specialty %>
+      <%= f.input :presentation %>
+      <%= f.input :address %>
 
-<div class="container mt-3">
-  <%= simple_form_for(@service) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :specialty %>
-    <%= f.input :presentation %>
-    <%= f.input :address %>
-
-    <%= f.submit class: 'btn btn-primary text-white mt-2' %>
-  <% end %>
+      <%= f.submit class: 'btn btn-primary text-white mt-2' %>
+    <% end %>
+  </div>
 </div>
