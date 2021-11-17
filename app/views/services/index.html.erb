@@ -1,12 +1,17 @@
 <div class="container">
   <% if policy(Service).create? %>
-    <%= link_to "Add a service", new_service_path %>
+    <%= link_to "Add a service", new_service_path, class: "btn btn-primary text-white my-3" %>
   <% end %>
-  <h1>Resultats correpondants</h1>
+  <h1>Corresponding craftsmen</h1>
 
   <% @services.each do |service|  %>
-  <%# Changer en title une fois créé %>
-    <h4><%= service.title %></h4>
-    <p><%= service.specialty %></p>
+    <div class="card-product my-3">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <h2><%= link_to service.title, service_path(service), class: 'text-decoration-none'%></h2>
+        <p><strong><%= service.specialty %></strong></p>
+        <p><%= service.description %></p>
+      </div>
+    </div>
   <% end %>
 </div>
