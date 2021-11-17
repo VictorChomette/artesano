@@ -1,0 +1,12 @@
+<div class="containter">
+  <%# <h1><%= @intervention.service.title</h1> %>
+  <h2><%= @intervention.date %></h2>
+  <h2><%= @intervention.description %></h2>
+
+  <% if @intervention.user == current_user %>
+    <%#= link_to "Edit intervention", edit_intervention_path(:id) %>
+    <%#= link_to intervention_path(@intervention), method: :delete do %>
+      <%# <i class="fas fa-trash"></i> %>
+    <%# end %>
+  <% end %>
+</div>
