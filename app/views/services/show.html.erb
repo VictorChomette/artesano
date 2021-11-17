@@ -1,12 +1,15 @@
-<div class="containter">
+<div class="banner px-5 text-white">
   <h2><%= @service.title %></h2>
   <h4><%= @service.specialty %></h4>
-  <p> <%= @service.presentation %> </p>
   <% if @service.user == current_user %>
-    <%= link_to "Edit service", edit_service_path(:id) %>
+    <%= link_to "Edit service", edit_service_path(@service), class:"btn btn-primary text-white" %>
     <%= link_to service_path(@service), method: :delete do %>
       <i class="fas fa-trash"></i>
     <% end %>
   <% end %>
-  <%= link_to "Create new intervention", new_intervention_path(@service) %>
+</div>
+<div class="container mt-3">
+  <h3>Description:</h3>
+  <p> <%= @service.presentation %> </p>
+  <%= link_to "Create new intervention", new_intervention_path(@service), class:"btn btn-primary text-white" %>
 </div>
