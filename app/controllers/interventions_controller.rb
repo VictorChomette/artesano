@@ -7,6 +7,10 @@ class InterventionsController < ApplicationController
   def show
     @intervention = Intervention.find(params[:id])
     authorize @intervention
+    @markers = [{
+        lat: @intervention.service.latitude,
+        lng: @intervention.service.longitude
+      }]
   end
 
   def new
