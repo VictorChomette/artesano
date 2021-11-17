@@ -2,7 +2,7 @@
   <% if policy(Service).create? %>
     <%= link_to "Add a service", new_service_path, class: "btn btn-primary text-white my-3" %>
   <% end %>
-  <h1>Corresponding craftsmen</h1>
+  <h1>Craftsmen services</h1>
 
   <% @services.each do |service|  %>
     <div class="card-product my-3">
