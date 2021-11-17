@@ -9,4 +9,5 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :address, presence: true
   validates :phone_number, presence: true, uniqueness: true
+
 end

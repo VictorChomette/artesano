@@ -19,6 +19,7 @@ class ServicesController < ApplicationController
     @service = Service.new(service_params)
     authorize @service
     @service.user = current_user
+    @service.address = @service.user.address unless @service.address
     if @service.save
       redirect_to service_path(@service)
     else
@@ -47,6 +48,6 @@ class ServicesController < ApplicationController
   private
 
   def service_params
-    params.require(:service).permit(:title, :specialty, :description)
+    params.require(:service).permit(:title, :specialty, :description, :address)
   end
 end
