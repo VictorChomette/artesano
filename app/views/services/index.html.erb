@@ -1,16 +1,17 @@
 <div class="container">
   <% if policy(Service).create? %>
   <% end %>
-  <div class="container bg-white my-4" style="padding: 65px">
-  <h1>Craftsmen services</h1>
-    
-  <% @services.each do |service|  %>
-    <div class="card-product my-3">
-    <img src="<%= image_path("#{service.specialty}.jpg")%>" alt="">
-      <div class="card-product-infos">
-        <h2><%= link_to service.title, service_path(service), class: 'text-decoration-none'%></h2>
-        <p><strong><%= service.specialty %></strong></p>
-        <p><%= service.presentation %></p>
+
+  <div class="d-flex bg-white my-4 p-5 flex-column">
+    <h1>Craftsmen services</h1>
+    <% @services.each do |service|  %>
+      <div class="card-product my-3">
+        <img src="<%= image_path("#{service.specialty}.jpg")%>" alt="">
+          <div class="card-product-infos">
+            <h2><%= link_to service.title, service_path(service), class: 'text-decoration-none text-black'%></h2>
+            <p><strong><%= service.specialty %></strong></p>
+            <p><%= service.presentation %></p>
+          </div>
       </div>
     <% end %>
   </div>
