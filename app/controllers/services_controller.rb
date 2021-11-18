@@ -2,8 +2,15 @@ class ServicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @services = policy_scope(Service).order(created_at: :desc)
-
+    if params["query"]
+      if params["query"]["specialty"] != "Spécialité"
+          @services = policy_scope(Service).order(created_at: :desc).where(specialty: params["query"]["specialty"])
+      else
+          @services = policy_scope(Service).order(created_at: :desc)
+      end
+    else
+      @services = policy_scope(Service).order(created_at: :desc)
+    end
   end
 
   def show
