@@ -15,7 +15,7 @@ export default class extends Controller {
       container: this.element,
       style: 'mapbox://styles/mapbox/streets-v10'
     });
-    this._addMarkersToMap();
+    this._addMarkersServicesToMap();
     this._fitMapToMarkers();
 
     this.map.addControl(new MapboxGeocoder({
@@ -24,13 +24,23 @@ export default class extends Controller {
     }));
   }
 
-  _addMarkersToMap() {
+  _addMarkersServicesToMap() {
   this.markersValue.forEach((marker) => {
-    new mapboxgl.Marker()
+    const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+    // Create a HTML element for your custom marker
+    const customMarker = document.createElement('div');
+    customMarker.className = 'marker';
+    customMarker.style.backgroundImage = `url('${marker.image_url}')`;
+    customMarker.style.backgroundSize = 'contain';
+    customMarker.style.width = '50px';
+    customMarker.style.height = '50px';
+    new mapboxgl.Marker(customMarker)
       .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
       .addTo(this.map);
     });
   }
+
 
   _fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds();
