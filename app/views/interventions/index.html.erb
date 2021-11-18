@@ -5,7 +5,15 @@
   <h1>Mes interventions</h1>
 
   <% @interventions.each do |intervention|  %>
-    <h4><%= intervention.date %></h4>
-    <p><%= intervention.description %></p>
+    <div class="card-product my-3">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="card-product-infos">
+        <%= link_to intervention_path(intervention) do %>
+        <h2 class='text-decoration-none text-black'> <%= "Intervention du #{intervention.date}" %> </h2>
+        <% end %>
+        <p><%= intervention.description %></p>
+      </div>
+    </div>
   <% end %>
+
 </div>

@@ -14,4 +14,5 @@
   data-mapbox-markers-value="<%= @markers.to_json %>"
   data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
-  <%= link_to "back", interventions_path, method: :get, class:"btn btn-primary text-white"%>
+  <%# <%= link_to "back", interventions_path, method: :get, class:"btn btn-primary text-white"%>
+  <a href="/interventions">Back</a>
