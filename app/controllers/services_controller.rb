@@ -11,6 +11,7 @@ class ServicesController < ApplicationController
     else
       @services = policy_scope(Service).order(created_at: :desc)
     end
+    puts(current_user.address)
   end
 
   def show
