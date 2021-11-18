@@ -1,6 +1,6 @@
 class AddColumnToIntervention < ActiveRecord::Migration[6.0]
   def change
-    add_column :interventions, :date, :string
+    add_column :interventions, :date, :date
     add_column :interventions, :price, :string
     add_column :interventions, :rating, :string
     add_column :interventions, :validated, :boolean
