@@ -5,7 +5,7 @@
     <div class="banner-element">
       <%= simple_form_for :query, url: "/services", method: :get do |f| %>
         <div class="inner-banner d-flex">
-          <%= f.input :specialty, as: :select,collection: ["Plombier", "Eléctricien","Peintre","Jardinier","Menuisier"],
+          <%= f.input :specialty, as: :select,collection: ["Spécialité", "Plombier", "Electricien","Peintre","Jardinier","Menuisier"],
           label: false, default: [0],
           input_html: {class: "select-spe"} %>
 
