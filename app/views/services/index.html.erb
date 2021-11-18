@@ -1,9 +1,9 @@
 <div class="container">
   <% if policy(Service).create? %>
-    <%= link_to "Add a service", new_service_path, class: "btn text-white my-3 add"%>
   <% end %>
+  <div class="container bg-white my-4" style="padding: 65px">
   <h1>Craftsmen services</h1>
-
+    
   <% @services.each do |service|  %>
     <div class="card-product my-3">
     <img src="<%= image_path("#{service.specialty}.jpg")%>" alt="">
@@ -12,6 +12,6 @@
         <p><strong><%= service.specialty %></strong></p>
         <p><%= service.presentation %></p>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
