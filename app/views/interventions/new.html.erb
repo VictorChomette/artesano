@@ -1,16 +1,11 @@
 <%# Ajouter photos!! %>
-<div class="mx-auto w-25">
+<div class="mx-auto w-50">
   <div class="container mt-3">
       <h1><%= @service.title %></h1>
     <%= simple_form_for(@intervention) do |f| %>
       <%= f.input :date %>
       <%= f.input :description %>
-      <%= f.submit class: 'btn btn-primary text-white mt-2' %>
+      <%= f.submit class: 'btn text-white mt-2 button-create' %>
     <% end %>
   </div>
 </div>
-<%#
-  <div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= [{lat: current_user.lat , lng: }].to_json %>
-  <%# data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>

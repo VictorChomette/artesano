@@ -1,14 +1,16 @@
 <%# Ajouter photos!! %>
-<div class="mx-auto w-25">
+<div class="mx-auto w-50">
   <div class="container mt-3">
+    <h2>Create a new service</h2>
     <%= simple_form_for(@service) do |f| %>
       <%= f.input :title %>
-      <%= f.input :specialty %>
+      <%= f.input :specialty, as: :select,collection: ["Plombier", "Electricien","Peintre","Jardinier","Menuisier"], prompt: "Selectionnez une spécialité",
+          label: false, default: [0] %>
       <%= f.input :presentation %>
       <%= f.input :address, input_html: { class: "d-none", data: { geocoder_target: "address" } },
               wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
 
-      <%= f.submit class: 'btn btn-primary text-white mt-2' %>
+      <%= f.submit class: 'btn text-white mt-2 button-create'%>
     <% end %>
   </div>
 </div>

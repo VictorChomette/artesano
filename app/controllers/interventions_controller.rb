@@ -1,7 +1,7 @@
 class InterventionsController < ApplicationController
 
   def index
-    @interventions = policy_scope(Intervention).order(created_at: :desc)
+    @interventions = policy_scope(Intervention).order(created_at: :desc).where(user_id: current_user.id)
   end
 
   def show

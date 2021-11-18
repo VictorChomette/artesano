@@ -1,17 +1,18 @@
 <div class="container">
   <% if policy(Service).create? %>
-    <%= link_to "Add a service", new_service_path, class: "btn btn-primary text-white my-3" %>
   <% end %>
-  <h1>Craftsmen services</h1>
 
-  <% @services.each do |service|  %>
-    <div class="card-product my-3">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2><%= link_to service.title, service_path(service), class: 'text-decoration-none'%></h2>
-        <p><strong><%= service.specialty %></strong></p>
-        <p><%= service.presentation %></p>
+  <div class="d-flex bg-white my-4 p-5 flex-column">
+    <h1>Craftsmen services</h1>
+    <% @services.each do |service|  %>
+      <div class="card-product my-3">
+        <img src="<%= image_path("#{service.specialty}.jpg")%>" alt="">
+          <div class="card-product-infos">
+            <h2><%= link_to service.title, service_path(service), class: 'text-decoration-none text-black'%></h2>
+            <p><strong><%= service.specialty %></strong></p>
+            <p><%= service.presentation %></p>
+          </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
