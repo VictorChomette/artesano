@@ -9,8 +9,9 @@
           label: false, default: [0],
           input_html: {class: "select-spe"} %>
 
-          <%= f.input :localisation, placeholder: "Localisation...", label: false,
-          input_html: {class: "input-loc"} %>
+          <%= f.input :address, placeholder: "Localisation...", label: false,
+          input_html: {class: "input-loc",class: "d-none", data: { geocoder_target: "address" } },
+              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } }%>
 
           <%= f.submit "Search!", class: "btn cta-search mt-0" %>
         </div>
@@ -20,7 +21,7 @@
 </div>
 <div class="container">
   <h2 class="my-5">Best craftsmen of the month!</h2>
-  <p>At <em>Artisaneo</em>, we strongly value our craftsmen. User satisfaction is our core mission,
+  <p>At <em>Artisano</em>, we strongly value our craftsmen. User satisfaction is our core mission,
   and craftsmen that make good work caracterise us.</p>
   <p>Find out the <strong>best crafstmen</strong> in your area:</p>
 </div>
