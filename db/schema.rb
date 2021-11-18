@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_101305) do
   create_table "interventions", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "date"
+    t.date "date"
     t.string "price"
     t.string "rating"
     t.boolean "validated"
