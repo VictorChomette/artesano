@@ -11,7 +11,7 @@ class ServicesController < ApplicationController
     else
       @services = policy_scope(Service).order(created_at: :desc)
     end
-    puts(current_user.address)
+    # puts(current_user.address) --> faisait planter lorsqu'on appuie sur search
   end
 
   def show

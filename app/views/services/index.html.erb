@@ -6,7 +6,7 @@
 
   <% @services.each do |service|  %>
     <div class="card-product my-3">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <img src="<%= image_path("#{service.specialty}.jpg")%>" alt="">
       <div class="card-product-infos">
         <h2><%= link_to service.title, service_path(service), class: 'text-decoration-none'%></h2>
         <p><strong><%= service.specialty %></strong></p>

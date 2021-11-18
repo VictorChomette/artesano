@@ -20,7 +20,7 @@ User.create(email: 'jayz@gmail.com', password: '123456', first_name: 'Jay', last
 
 Service.create!(
   title: 'Etincelle Réparations paris 4eme',
-  specialty: 'Eléctricien',
+  specialty: 'Electricien',
   presentation: 'Ultra réactif, même le weekend. Prix avantageux sur tout Paris centre!',
   address: '17 square jean thebaud, 75015',
   user_id: User.first.id
@@ -28,7 +28,7 @@ Service.create!(
 
 Service.create!(
   title: 'Les Frères Electriciens Paris 19eme',
-  specialty: 'Eléctricien',
+  specialty: 'Electricien',
   presentation: 'Disponible dans Paris et ses allentours du lundi au vendredi, de 8h à 20h.',
   address: '13 Rue Georges Auric, 75019',
   user_id: User.first.id
@@ -36,7 +36,7 @@ Service.create!(
 
 Service.create!(
   title: 'Mister Watt Paris 16eme',
-  specialty: 'Eléctricien',
+  specialty: 'Electricien',
   presentation: 'Situé au centre du 16eme arrondissement de Paris, proposant un service de qualité et réactif. Disponible 7j/7 sauf jour férié.',
   address: '80 avenue mozart, 75016',
   user_id: User.first.id
