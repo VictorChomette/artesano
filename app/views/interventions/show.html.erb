@@ -1,18 +1,32 @@
 <div class="container">
-  <%# <h1><%= @intervention.service.title</h1> %>
-  <h2><%= @intervention.date %></h2>
-  <h2><%= @intervention.description %></h2>
+  <div class="container bg-white my-4 p-4" id="container-intervention-recap">
+    <div class="d-flex justify-content-between">
+      <h1><%= @intervention.service.title%></h1>
+      <% if @intervention.user == current_user %>
+        <%= link_to "Edit", edit_intervention_path(:id), class:'btn add mb-3' %>
+      <% end %>
+    </div>
+    <h4><%= @intervention.date %></h4>
+    <p><%= @intervention.description %></p>
+    <a href="/interventions" class="btn add">Back</a>
+  </div>
 
-  <% if @intervention.user == current_user %>
-    <%#= link_to "Edit intervention", edit_intervention_path(:id) %>
-    <%#= link_to intervention_path(@intervention), method: :delete do %>
-      <%# <i class="fas fa-trash"></i> %>
-    <%# end %>
-  <% end %>
-  <div style="width: 100%; height: 600px;"
-  data-controller="mapbox"
-  data-mapbox-markers-value="<%= @markers.to_json %>"
-  data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  <div class="d-flex justify-content-between">
+    <div style="width: 58%; height: 400px"
+      data-controller="mapbox"
+      data-mapbox-markers-value="<%= @markers.to_json %>"
+      data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="container bg-white mb-4 p-4" style="width: 40%; height: 400px">
+      <h1>Contact:</h1>
+      <div class="d-flex flex-column justify-content-between" style="height: 86%">
+        <p>Name: <%=  %> </p>
+        <p>Email: <%=  %> </p>
+        <p>Phone: <%=  %> </p>
+        <p>Address: <%=  %> </p>
+        <%= link_to "Signal an issue", '#', class:'btn add' %>
+      </div>
+    </div>
+  </div>
 </div>
   <%# <%= link_to "back", interventions_path, method: :get, class:"btn btn-primary text-white"%>
-  <a href="/interventions">Back</a>
