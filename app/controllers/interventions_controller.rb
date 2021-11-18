@@ -9,8 +9,14 @@ class InterventionsController < ApplicationController
     authorize @intervention
     @markers = [{
         lng: @intervention.service.longitude,
-        lat: @intervention.service.latitude
-      }]
+        lat: @intervention.service.latitude,
+        info_window: render_to_string(partial: "info_window", locals: { service: @service })
+      },
+        {
+          lng: current_user.longitude,
+          lat: current_user.latitude,
+          info_window: render_to_string(partial: "info_window", locals: { user: current_user })
+        }]
   end
 
   def new
