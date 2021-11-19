@@ -6,6 +6,7 @@ class InterventionsController < ApplicationController
 
   def show
     @intervention = Intervention.find(params[:id])
+    @service = @intervention.service
     authorize @intervention
     @markers = [{
         lng: @intervention.service.longitude,
@@ -29,7 +30,7 @@ class InterventionsController < ApplicationController
 
   def create
     @service = Service.find(params[:service_id])
-    @intervention = Intervention.new(interventions_params)
+    @intervention = Intervention.new(intervention_params)
     authorize @intervention
     @intervention.service = @service
     @intervention.user = current_user

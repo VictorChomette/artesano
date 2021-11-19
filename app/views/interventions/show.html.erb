@@ -20,10 +20,10 @@
     <div class="container bg-white mb-4 p-4" style="width: 40%; height: 400px">
       <h1>Contact:</h1>
       <div class="d-flex flex-column justify-content-between" style="height: 86%">
-        <p>Name: <%=  %> </p>
-        <p>Email: <%=  %> </p>
-        <p>Phone: <%=  %> </p>
-        <p>Address: <%=  %> </p>
+        <p><strong>Company: </strong><%= @service.title %> </p>
+        <p><strong>Email: </strong><%= @service.user.email %> </p>
+        <p><strong>Phone: </strong><%= @service.user.phone_number %> </p>
+        <p><strong>Address: </strong><%= @service.user.address %> </p>
         <%= link_to "Signal an issue", '#', class:'btn button-artesano' %>
       </div>
     </div>
