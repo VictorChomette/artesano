@@ -10,12 +10,14 @@ class InterventionsController < ApplicationController
     @markers = [{
         lng: @intervention.service.longitude,
         lat: @intervention.service.latitude,
-        info_window: render_to_string(partial: "info_window", locals: { service: @service })
+        info_window: render_to_string(partial: "info_window", locals: { local: @intervention.service }),
+        image_url: helpers.asset_url("craftsmen.png")
       },
         {
           lng: current_user.longitude,
           lat: current_user.latitude,
-          info_window: render_to_string(partial: "info_window", locals: { user: current_user })
+          info_window: render_to_string(partial: "info_window", locals: { local: current_user }),
+          image_url: helpers.asset_url("user.png")
         }]
   end
 

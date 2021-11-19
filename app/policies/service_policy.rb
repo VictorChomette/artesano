@@ -1,7 +1,11 @@
 class ServicePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.near(user.address, 10)
+      if user
+        scope.near(user.address, 20)
+      else
+        scope.all
+      end
     end
   end
 
