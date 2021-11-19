@@ -5,7 +5,7 @@
   </div>
   <% if @service.user == current_user %>
     <%= link_to "Edit service", edit_service_path(@service), class:"btn text-white button-artesano button-edit"%>
-    <%= link_to "Delete service", service_path(@service), method: :delete, class:"btn text-white button-artesano" %>
+    <%= link_to "Delete service", service_path(@service), method: :delete, class:"btn text-white button-artesano", data: {confirm: "Etes-vous sûr(e) ?"} %>
   <% end %>
 </div>
 <div class="container my-5">
