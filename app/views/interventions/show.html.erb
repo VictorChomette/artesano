@@ -3,12 +3,12 @@
     <div class="d-flex justify-content-between">
       <h1><%= @intervention.service.title%></h1>
       <% if @intervention.user == current_user %>
-        <%= link_to "Edit", edit_intervention_path(@intervention), class:'btn add mb-3' %>
+        <%= link_to "Edit", edit_intervention_path(@intervention), class:'btn button-artesano mb-3' %>
       <% end %>
     </div>
     <h4><%= @intervention.date %></h4>
     <p><%= @intervention.description %></p>
-    <a href="/interventions" class="btn add">Back</a>
+    <a href="/interventions" class="btn button-artesano">Back</a>
   </div>
 
   <div class="d-flex justify-content-between">
@@ -24,7 +24,7 @@
         <p>Email: <%=  %> </p>
         <p>Phone: <%=  %> </p>
         <p>Address: <%=  %> </p>
-        <%= link_to "Signal an issue", '#', class:'btn add' %>
+        <%= link_to "Signal an issue", '#', class:'btn button-artesano' %>
       </div>
     </div>
   </div>
