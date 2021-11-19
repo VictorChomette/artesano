@@ -13,14 +13,16 @@
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="client" role="tabpanel" aria-labelledby="client-tab">
       <h1>Interventions at my place</h1>
-      <% @interventions.each do |intervention|  %>
-        <div class="card-product my-3">
-          <img src="<%= image_path("#{intervention.service.specialty}.jpg")%>" alt="">
-          <div class="card-product-infos">
-            <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%></h2>
-            <p><%= intervention.description %></p>
+      <% @interventions.each do |intervention| %>
+        <%= link_to intervention_path(intervention) do %>
+          <div class="card-product my-3">
+            <img src="<%= image_path("#{intervention.service.specialty}.jpg")%>" alt="">
+            <div class="card-product-infos">
+              <h2>Intervention on <%= intervention.date %> at <%= intervention.user.address %></h2>
+              <p><%= intervention.description %></p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
 
@@ -42,44 +44,50 @@
         <%# La subtab pending %>
         <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
           <h1>Interventions pending</h1>
-          <% current_user.booked_interventions.where(validated: nil).each do |intervention|  %>
-            <div class="card-product my-3">
-             <img src="<%= image_path("#{intervention.service.specialty}.jpg")%>" alt="">
-              <div class="card-product-infos">
-                <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%> at <%= intervention.user.address %></h2>
-                <p><%= intervention.description %></p>
-                <%= link_to "Accept", accept_path(intervention) , class:'btn btn-primary' %>
-                <%= link_to "Reject", reject_path(intervention) , class:'btn btn-danger' %>
+          <% current_user.booked_interventions.where(validated: nil).each do |intervention| %>
+            <%= link_to intervention_path(intervention) do %>
+              <div class="card-product my-3">
+              <img src="<%= image_path("#{intervention.service.specialty}.jpg")%>" alt="">
+                <div class="card-product-infos">
+                  <h2>Intervention on <%= intervention.dates %> at <%= intervention.user.address %></h2>
+                  <p><%= intervention.description %></p>
+                  <%= link_to "Accept", accept_path(intervention) , class:'btn btn-primary' %>
+                  <%= link_to "Reject", reject_path(intervention) , class:'btn btn-danger' %>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
 
         <%# La subtab validated %>
         <div class="tab-pane fade" id="validated" role="tabpanel" aria-labelledby="validated-tab">
           <h1>Interventions validated</h1>
-          <% current_user.booked_interventions.where(validated: true).each do |intervention|  %>
-            <div class="card-product my-3">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              <div class="card-product-infos">
-                <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%></h2>
-                <p><%= intervention.description %></p>
+          <% current_user.booked_interventions.where(validated: true).each do |intervention| %>
+            <%= link_to intervention_path(intervention), class:"text-decoration-none text-black" do %>
+              <div class="card-product my-3">
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <div class="card-product-infos">
+                  <h2>Intervention on <%= intervention.date%> at <%= intervention.user.address %></h2>
+                  <p><%= intervention.description %></p>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
 
         <%# La subtab rejected %>
         <div class="tab-pane fade" id="rejected" role="tabpanel" aria-labelledby="rejected-tab">
           <h1>Interventions rejected</h1>
-          <% current_user.booked_interventions.where(validated: false).each do |intervention|  %>
-            <div class="card-product my-3">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-              <div class="card-product-infos">
-                <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%></h2>
-                <p><%= intervention.description %></p>
+          <% current_user.booked_interventions.where(validated: false).each do |intervention| %>
+            <%= link_to intervention_path(intervention) do %>
+              <div class="card-product my-3">
+                <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+                <div class="card-product-infos">
+                  <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%></h2>
+                  <p><%= intervention.description %></p>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>
