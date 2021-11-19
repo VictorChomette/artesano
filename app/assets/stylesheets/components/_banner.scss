@@ -75,7 +75,8 @@ input::placeholder {
 }
 
 .select-spe {
-  color:white;
+  color: black;
+  background-color: white;
   border: 1px solid white;
   padding: 8px 24px;
   border-top-left-radius: 50px;
@@ -86,8 +87,9 @@ input::placeholder {
 }
 
 .cta-search {
-  background-color: #FEFAE0;
-  border-color: #FEFAE0;
+  background-color: #D4A373;
+  border-color: #D4A373;
+  color: white;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   border-top-right-radius: 50px;
