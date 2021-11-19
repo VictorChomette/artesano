@@ -15,7 +15,7 @@
       <h1>Interventions at my place</h1>
       <% @interventions.each do |intervention|  %>
         <div class="card-product my-3">
-          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <img src="<%= image_path("#{intervention.service.specialty}.jpg")%>" alt="">
           <div class="card-product-infos">
             <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%></h2>
             <p><%= intervention.description %></p>
@@ -44,7 +44,7 @@
           <h1>Interventions pending</h1>
           <% current_user.booked_interventions.where(validated: nil).each do |intervention|  %>
             <div class="card-product my-3">
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+             <img src="<%= image_path("#{intervention.service.specialty}.jpg")%>" alt="">
               <div class="card-product-infos">
                 <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%> at <%= intervention.user.address %></h2>
                 <p><%= intervention.description %></p>

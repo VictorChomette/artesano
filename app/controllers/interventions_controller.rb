@@ -42,6 +42,7 @@ class InterventionsController < ApplicationController
 
   def edit
     @intervention = Intervention.find(params[:id])
+    @service = @intervention.service
     authorize @intervention
   end
 
