@@ -3,7 +3,7 @@
     <div class="d-flex justify-content-between">
       <h1><%= @intervention.service.title%></h1>
       <% if @intervention.user == current_user %>
-        <%= link_to "Edit", edit_intervention_path(:id), class:'btn add mb-3' %>
+        <%= link_to "Edit", edit_intervention_path(@intervention), class:'btn add mb-3' %>
       <% end %>
     </div>
     <h4><%= @intervention.date %></h4>
