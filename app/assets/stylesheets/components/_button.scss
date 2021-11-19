@@ -1,55 +1,16 @@
-.button-create {
-  background-color: #D4A373;
-  // margin-left: 75px;
-  border-color: #D4A373;
-  justify-content: center;
-}
-
-.button-delete {
-  background-color: #D4A373;
-  //margin-left: 50px;
-  border-color: #D4A373;
-}
-
-.add {
-  background-color: #D4A373;
-  border-color: #D4A373;
-}
-
-.button-edit {
-  background-color: #b87b3f;
-  margin-left: 75px;
-  border-color: #b87b3f;
-}
-
-.button-create-intervention {
-  background-color: #D4A373;
-  border-color: #D4A373;
-}
-
-.button-edit-service {
-  background-color: #D4A373;
-  border-color: #D4A373;
-  margin-left: 85px;
-}
-
-.button-signup {
+.button-artesano {
   background-color: #D4A373;
   border-color: #D4A373;
   color: white;
+  text-align: center;
 }
 
-.button-signup:hover {
-  background-color: #CCD5AE;
-  border-color: #CCD5AE;
+.button-artesano:hover {
+  background-color: #b17840;
+  border-color: #b17840;
+  color: white;
 }
 
-.button-login {
-  background-color: #D4A373;
-  border-color: #D4A373;
-}
-
-.button-login:hover {
-  background-color: #CCD5AE;
-  border-color: #CCD5AE;
+.button-edit {
+  margin-left: 75px;
 }
