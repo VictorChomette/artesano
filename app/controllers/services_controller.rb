@@ -20,13 +20,13 @@ class ServicesController < ApplicationController
     @markers = [{
       lng: @service.longitude,
       lat: @service.latitude,
-      info_window: render_to_string(partial: "info_window_service", locals: { service: @service }),
+      info_window: render_to_string(partial: "info_window", locals: { local: @service }),
       image_url: helpers.asset_url("craftsmen.png")
       },
         {
           lng: current_user.longitude,
           lat: current_user.latitude,
-          info_window: render_to_string(partial: "info_window_user", locals: { user: current_user }),
+          info_window: render_to_string(partial: "info_window", locals: { local: current_user }),
           image_url: helpers.asset_url("user.png")
         }]
   end
