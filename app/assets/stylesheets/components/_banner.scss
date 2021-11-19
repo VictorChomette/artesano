@@ -36,8 +36,11 @@
 
 .inner-banner{
   align-items: center;
-  justify-content:space-around;
+  justify-content:center;
   margin-top: 100px;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .form-control{
@@ -75,7 +78,8 @@ input::placeholder {
   color:white;
   border: 1px solid white;
   padding: 8px 24px;
-  border-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
   font-weight: lighter;
   transition: opacity 0.3s ease;
   background-image: white;
@@ -84,4 +88,9 @@ input::placeholder {
 .cta-search {
   background-color: #FEFAE0;
   border-color: #FEFAE0;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  height: 42px;
 }

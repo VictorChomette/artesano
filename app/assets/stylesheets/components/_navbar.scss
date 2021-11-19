@@ -33,3 +33,9 @@
   left: auto;
   color: white;
 }
+
+@media (max-width: 576px) {
+  .login {
+    display: none;
+  }
+}

@@ -16,7 +16,7 @@ class InterventionsController < ApplicationController
         {
           lng: current_user.longitude,
           lat: current_user.latitude,
-          info_window: render_to_string(partial: "services/info_window_user", locals: { user: current_user }),
+          info_window: render_to_string(partial: "services/info_window", locals: { user: current_user }),
           image_url: helpers.asset_url("user.png")
         }]
   end
