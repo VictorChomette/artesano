@@ -7,13 +7,14 @@
         <div class="inner-banner d-flex">
           <%= f.input :specialty, as: :select,collection: ["Spécialité", "Plombier", "Electricien","Peintre","Jardinier","Menuisier"],
           label: false, default: [0],
-          input_html: {class: "select-spe"} %>
+          input_html: {class: "select-spe w-100"},
+          wrapper_html: { class: 'w-33 mb-0' } %>
 
           <%= f.input :address, placeholder: "Localisation...", label: false,
-          input_html: {class: "input-loc",class: "d-none", data: { geocoder_target: "address" } },
-              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } }%>
+          input_html: { class: "input-loc w-33",class: "d-none", data: { geocoder_target: "address" } },
+              wrapper_html: { class: 'w-33 mb-0', data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } }%>
 
-          <%= f.submit "Search!", class: "btn cta-search mt-0" %>
+          <%= f.submit "Search!", class: "btn cta-search mt-0 w-33" %>
         </div>
       <% end %>
     </div>
