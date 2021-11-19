@@ -1,17 +1,88 @@
-<div class="container">
-  <%# <% if policy(Intervention).create? %>
-    <%# <%= link_to "Add a intervention", new_intervention_path %>
-  <%# <% end %>
-  <h1>Mes interventions</h1>
+<div class="container mt-3">
+  <%# Les deux tabs principales: particulier et pro %>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="client-tab" data-bs-toggle="tab" data-bs-target="#client" type="button" role="tab" aria-controls="client" aria-selected="true">Client</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="professional-tab" data-bs-toggle="tab" data-bs-target="#professional" type="button" role="tab" aria-controls="professional" aria-selected="false">Professional</button>
+    </li>
+  </ul>
 
-  <% @interventions.each do |intervention|  %>
-    <div class="card-product my-3">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2>Intervention du <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%></h2>
-        <p><%= intervention.description %></p>
+  <%# La tab particulier, qui n'a pas de subtab %>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="client" role="tabpanel" aria-labelledby="client-tab">
+      <h1>Interventions at my place</h1>
+      <% @interventions.each do |intervention|  %>
+        <div class="card-product my-3">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <div class="card-product-infos">
+            <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%></h2>
+            <p><%= intervention.description %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <%# La tab pro, qui a 3 subtab: pending, validated, rejected %>
+    <%# Les trois subtabs: %>
+    <div class="tab-pane fade" id="professional" role="tabpanel" aria-labelledby="professional-tab">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="pending-tab" data-bs-toggle="tab" data-bs-target="#pending" type="button" role="tab" aria-controls="pending" aria-selected="true">Pending</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="validated-tab" data-bs-toggle="tab" data-bs-target="#validated" type="button" role="tab" aria-controls="validated" aria-selected="false">Validated</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="rejected-tab" data-bs-toggle="tab" data-bs-target="#rejected" type="button" role="tab" aria-controls="rejected" aria-selected="false">Rejected</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent2">
+        <%# La subtab pending %>
+        <div class="tab-pane fade show active" id="pending" role="tabpanel" aria-labelledby="pending-tab">
+          <h1>Interventions pending</h1>
+          <% current_user.booked_interventions.where(validated: nil).each do |intervention|  %>
+            <div class="card-product my-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%> at <%= intervention.user.address %></h2>
+                <p><%= intervention.description %></p>
+                <%= link_to "Accept", accept_path(intervention) , class:'btn btn-primary' %>
+                <%= link_to "Reject", reject_path(intervention) , class:'btn btn-danger' %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <%# La subtab validated %>
+        <div class="tab-pane fade" id="validated" role="tabpanel" aria-labelledby="validated-tab">
+          <h1>Interventions validated</h1>
+          <% current_user.booked_interventions.where(validated: true).each do |intervention|  %>
+            <div class="card-product my-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%></h2>
+                <p><%= intervention.description %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+
+        <%# La subtab rejected %>
+        <div class="tab-pane fade" id="rejected" role="tabpanel" aria-labelledby="rejected-tab">
+          <h1>Interventions rejected</h1>
+          <% current_user.booked_interventions.where(validated: false).each do |intervention|  %>
+            <div class="card-product my-3">
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h2>Intervention on <%= link_to intervention.date, intervention_path(intervention), class: 'text-decoration-none text-black'%></h2>
+                <p><%= intervention.description %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  <% end %>
-
+  </div>
 </div>
