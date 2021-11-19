@@ -7,8 +7,10 @@
   </button>
     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarMobile">
     <% if user_signed_in? %>
-      <a href="/interventions"class="text-decoration-none mx-3 text-black text-center">Mes interventions</a>
+
+      <a href="/interventions"class="text-decoration-none mx-3 text-black text-center">My interventions</a>
       <%= link_to "Add a service", new_service_path, class: "btn text-white mx-3 button-artesano"%>
+
       <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
     <% else %>
       <%= link_to "Log In", user_session_path, class:"login-button btn btn-primary" %>
@@ -20,8 +22,10 @@
         <li class="nav-item active">
         </li>
         <div class="d-flex align-items-center">
-          <a href="/interventions"class="text-decoration-none mx-3 text-black text-center">Mes interventions</a>
+
+          <a href="/interventions"class="text-decoration-none mx-3 text-black text-center">My interventions</a>
           <%= link_to "Add a service", new_service_path, class: "btn text-white mx-3 button-artesano"%>
+
         </div>
         <li class="nav-item dropdown">
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://cdn-icons-png.flaticon.com/512/1909/1909951.png"/>
