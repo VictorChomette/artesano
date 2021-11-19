@@ -50,6 +50,7 @@ class InterventionsController < ApplicationController
     @intervention = Intervention.find(params[:id])
     authorize @intervention
     @intervention.update(intervention_params)
+    redirect_to intervention_path(@intervention)
   end
 
   def accept
@@ -69,7 +70,7 @@ class InterventionsController < ApplicationController
 
   private
 
-  def interventions_params
+  def intervention_params
     params.require(:intervention).permit(:date, :description)
   end
 end
